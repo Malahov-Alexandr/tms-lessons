@@ -58,11 +58,3 @@ def sum_and_max(*numbers):
 print(sum_and_max(1, 2, 3, 4, 5, 6, 4, 3, 8, 11))
 
 
-# 8
-def my_round(number: float, round_number):
-    number = str(number)
-    ind = number.index('.')
-    new_number = number[:ind + round_number]
-
-
-print(my_round(5.432,2))

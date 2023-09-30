@@ -33,8 +33,18 @@ print([str(i) for i in my_list])
 st = list(map(str, my_list))
 print(st)
 
+#2.3.1
+print(2.3)
+for i in my_list:
+    print(round(i)/100)
+
+
+#2.3.2
+print('2.3.2')
+print([round(i)/100 for i in my_list])
+
 # 2.3.3
 r = list(map(lambda d: round(d / 100), my_list))
 print(r)
 
-# 2.4.3
+# 2.4.1

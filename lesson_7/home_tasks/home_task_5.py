@@ -15,3 +15,5 @@ def my_func(x):
 
 y = my_func(7)
 print(f'y = {y}')
+
+a = int(input())

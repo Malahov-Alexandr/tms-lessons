@@ -21,10 +21,9 @@ def get_oldest_person(friends_list: list):
 
 # 6
 def filter_male_person(friends_list):
-    filtered =  list(filter(lambda x: x.gender == 'M', friends_list))
+    filtered = list(filter(lambda x: x.gender == 'M', friends_list))
     for friend in filtered:
         print(friend)
-
 
 
 result = get_oldest_person(list_of_friends)

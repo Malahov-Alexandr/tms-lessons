@@ -1,4 +1,4 @@
-import json
+wimport json
 import random
 
 
@@ -22,9 +22,11 @@ class Bank:
 
     def open_account(self, card_holder: str):
         person = BankAccount(card_holder)
-        self.bank_accounts[person.account_number] = person.__dict__
+        #TODO add .__dict__ after person
+        self.bank_accounts[person.account_number] = person
         print(self.bank_accounts)
-        self.writer(self.bank_accounts)
+        #json was created for debugging
+        # self.writer(self.bank_accounts)
         return person
 
     def add_money(self, account_number: str, money: int):

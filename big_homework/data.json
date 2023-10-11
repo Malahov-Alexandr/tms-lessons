@@ -1,0 +1,20 @@
+{
+    "38049283780223727505": {
+        "card_holder": "MISTER WHITE",
+        "money": 0.0,
+        "account_number": "38049283780223727505",
+        "card_number": "6258158509459039"
+    },
+    "73020646361625077836": {
+        "card_holder": "MISTER BLACK",
+        "money": 119.0,
+        "account_number": "73020646361625077836",
+        "card_number": "8837851488431183"
+    },
+    "65671220940741288642": {
+        "card_holder": "MISTER RED",
+        "money": 1.0,
+        "account_number": "65671220940741288642",
+        "card_number": "4169855178748957"
+    }
+}

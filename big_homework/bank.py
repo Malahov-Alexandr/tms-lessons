@@ -83,31 +83,37 @@ class Controller:
            3. Положить деньги на счёт
            4. Перевести деньги между счетами
            5. Совершить платёж""")
-            user_input = int(input())
-            if user_input == 0:
-                print('До свидания!')
-                save_accounts(self.data_file_name, self.bank.bank_accounts)
-                break
-            elif user_input == 1:
-                user_name = input('Enter your name: ')
-                new_account = self.bank.open_account(user_name)
-                print(f'"Счёт {new_account.account_number} создан"')
-            elif user_input == 2:
-                self.bank.all_accounts()
-            elif user_input == 3:
-                account_number = input('Введите номер cчёта:  ')
-                money = int(input('Количество денег: '))
-                self.bank.add_money(account_number, money)
-            elif user_input == 4:
-                from_account = input('Введите номер cчёта-отправителя: ')
-                recipient_account = input('Введите номер cчёта-получателя: ')
-                money = int(input('Количество денег: '))
-                self.bank.transfer_money(from_account, recipient_account, money)
-            elif user_input == 5:
-                from_account = input('Введите номер cчёта-отправителя: ')
-                external_user = input('Введите номер счёта внешнего получателя: ')
-                money = int(input('Количество денег: '))
-                self.bank.external_transfer(from_account, external_user, money)
+            user_input = input()
+            if not user_input.isdigit():
+                print('Неправильный ввод')
+                continue
+            else:
+                user_input = int(user_input)
+                if user_input == 0:
+                    print('До свидания!')
+                    save_accounts(self.data_file_name, self.bank.bank_accounts)
+                    break
+                elif user_input == 1:
+                    user_name = input('ведите имя и фамилию держателя карты (на английском): ')
+                    new_account = self.bank.open_account(user_name)
+                    print(f'"Счёт {new_account.account_number} создан"')
+                elif user_input == 2:
+                    self.bank.all_accounts()
+                elif user_input == 3:
+                    account_number = input('Введите номер cчёта:  ')
+                    money = int(input('Количество денег: '))
+                    self.bank.add_money(account_number, money)
+                elif user_input == 4:
+                    from_account = input('Введите номер cчёта-отправителя: ')
+                    recipient_account = input('Введите номер cчёта-получателя: ')
+                    money = int(input('Количество денег: '))
+                    self.bank.transfer_money(from_account, recipient_account, money)
+                elif user_input == 5:
+                    from_account = input('Введите номер cчёта-отправителя: ')
+                    external_user = input('Введите номер счёта внешнего получателя: ')
+                    money = int(input('Количество денег: '))
+                    self.bank.external_transfer(from_account, external_user, money)
+
 
 
 if __name__ == '__main__':

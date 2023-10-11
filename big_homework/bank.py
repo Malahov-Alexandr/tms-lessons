@@ -1,3 +1,4 @@
+import json
 import random
 
 
@@ -12,7 +13,6 @@ class BankAccount:
         self.money = 0
         self.account_number = get_random_digits(20)
         self.card_number = get_random_digits(16)
-               
 
 
 class Bank:
@@ -22,7 +22,9 @@ class Bank:
 
     def open_account(self, card_holder: str):
         person = BankAccount(card_holder)
-        self.bank_accounts[person.account_number] = person
+        self.bank_accounts[person.account_number] = person.__dict__
+        print(self.bank_accounts)
+        self.writer(self.bank_accounts)
         return person
 
     def add_money(self, account_number: str, money: int):
@@ -43,6 +45,10 @@ class Bank:
             print(f'   Остаток на счету: {account.money}$')
             print(f'   Номер карты: {account.card_number}')
             print(f'   Держатель карты: {account.card_holder}')
+
+    def writer(self,data):
+        with open('test.json','w') as f:
+            json.dump(data, f, indent=4)
 class Controller:
 
     def __init__(self):
@@ -82,8 +88,6 @@ class Controller:
             else:
                 pass
             # TODO add descripiption that the user entered wrong number
-
-
 
     # logger for logging
 

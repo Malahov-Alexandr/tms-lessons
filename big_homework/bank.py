@@ -33,7 +33,8 @@ def load_accounts(file_name) -> dict[str, BankAccount]:
 
 def save_accounts(file_name, bank_accounts):
     with open(file_name, 'w') as file:
-        json.dump({account_number: convert_bank_account_to_dict(account) for account_number, account in bank_accounts.items()}, file, indent=4)
+        json.dump({account_number: convert_bank_account_to_dict(account) for account_number, account in
+                   bank_accounts.items()}, file, indent=4)
 
 
 class Bank:
@@ -115,7 +116,6 @@ class Controller:
                         external_user = input('Введите номер счёта внешнего получателя: ')
                         money = int(input('Количество денег: '))
                         self.bank.external_transfer(from_account, external_user, money)
-
 
 
 if __name__ == '__main__':

@@ -1,0 +1,18 @@
+ls -l /dev/null >> file_types.txt
+ls -l /dev/zero >> file_types.txt
+ls -l /dev/sda >> file_types.txt
+ls -l /dev/tty >> file_types.txt
+ls -l /root >> file_types.txt
+ls -l /etc/passwd >> file_types.txt
+ls -l /proc/mounts >> file_types.txt
+ls -l /bin/ls >> file_types.txt
+ls -l /bin/zcat >> file_types.txt
+stat /dev/null >> file_types.txt
+stat /dev/zero >> file_types.txt
+stat /dev/sda >> file_types.txt
+stat /dev/tty >> file_types.txt
+stat /root >> file_types.txt
+stat /etc/passwd >> file_types.txt
+stat /proc/mounts >> file_types.txt
+stat /bin/ls >> file_types.txt
+stat /bin/zcat >> file_types.txt

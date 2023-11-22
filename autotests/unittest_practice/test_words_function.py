@@ -1,13 +1,26 @@
 import requests
-
+import datetime
 from words_function import join_words
 import unittest
 from unittest.mock import Mock, MagicMock, patch
-import requests
+
+
+def current_day():
+    days = ['Monday', 'Wednesday', 'Friday']
+    the_day = datetime.datetime.now().strftime("%A")
+    if the_day in days:
+        return True
+
+
+today = current_day()
 
 
 def mocked_get(*args, **kwargs):
     return "badger-racoon"
+
+
+def mocked_status_code(*args, **kwargs):
+    return 404
 
 
 class TestWordsFunction(unittest.TestCase):
@@ -38,20 +51,16 @@ class TestWordsFunction(unittest.TestCase):
         result = join_words
         self.assertEqual(result, '123-word')
 
-    def test_mock_racoon(self):
-        mock = join_words
-        mock.join_words = MagicMock(return_value="badger-racoon")
+    @patch("requests.get", side_effect=mocked_get)
+    def test_mocked_google_search(self, mock):
+        link = 'https://www.google.com/search?q=badger'
+        response = requests.get(link)
+        expected_result = "badger-racoon"
+        self.assertIn(expected_result, response)
 
-        self.assertEqual(mock.join_words('one','two'), "badger-racoon")
-
-
-
-
-    def test_real_request(self):
-        r = requests.get('https://google.com')
-        result = r.status_code
-        print(result)
-
+    @unittest.skipIf(today, "Today is not a good day")
+    def test_skipped_if_condition(self):
+        pass
 
     def tearDown(self):
         print("A test ends")

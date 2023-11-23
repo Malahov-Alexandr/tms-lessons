@@ -1,7 +1,5 @@
 import subprocess
 
-
-
 list_of_files = []
 stat_command = 'stat '
 ls_command = 'ls -l '
@@ -25,8 +23,6 @@ with open('__text.txt', 'r') as f:
     for line in f.readlines():
         line = line.strip()
         list_of_files.append(line)
-
-
 
 with open(result_file, 'w') as result_file:
     lazy_execution(ls_command)

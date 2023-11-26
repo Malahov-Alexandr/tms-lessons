@@ -1,9 +1,0 @@
-/dev/null
-/dev/zero
-/dev/sda
-/dev/tty
-/root
-/etc/passwd
-/proc/mounts
-/bin/ls
-/bin/zcat
